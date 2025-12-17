@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejercicio 1 - Texto</title>
+  <style>
+body {
+	margin: 0;
+	background: orange;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 40px 10px;
+}
+
+h1 {
+	margin: 0 0 35px 0;
+	text-align: center;
+	font-size: 90px;
+	font-weight: normal;
+}
+
+.azul {
+	color: blue;
+}
+
+.verde {
+	color: green;
+}
+
+.barra-plata {
+	background: silver;
+	padding: 6px 0; /* ⬅️ menos alto (ajusta al texto) */
+	margin: 0 0 55px 0;
+	text-align: center;
+}
+
+.barra-plata p {
+	margin: 0;
+	color: blue;
+	font-size: 72px;
+	font-weight: normal;
+	line-height: 1; /* ⬅️ evita que la línea meta altura extra */
+}
+
+.derecha {
+	text-align: right;
+	margin: 0 20px 20px 0;
+	font-size: 22px;
+}
+
+.barra-plata.grande{
+  padding: 6px 0;
+}
+</style>
+</head>
+<body>
+
+  <h1><span class="azul">Texto</span> centrado<span class="azul">.</span></h1>
+
+  <div class="barra-plata">
+    <p>Texto centrado sobre fondo de color plata.</p>
+  </div>
+
+  <p class="derecha">
+    <span class="azul">Texto </span> <span class="verde">alineado</span><span class="azul">  a la derecha</span> <span class="verde">.
+  </p>
+
+  <div class="barra-plata">
+    <p>Otro texto centrado sobre fondo de color plata.</p>
+  </div>
+
+</body>
+</html>
