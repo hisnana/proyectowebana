@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>FormularioServlet</servlet-name>
+  	<display-name>FormularioServlet</display-name>
+  	<description></description>
+  	<servlet-class>es.cursojava.servlets.FormularioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FormularioServlet</servlet-name>
+  	<url-pattern>/formulario</url-pattern>
+  </servlet-mapping>
 </web-app>
