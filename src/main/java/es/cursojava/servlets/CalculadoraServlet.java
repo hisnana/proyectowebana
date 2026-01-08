@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class calculadora
  */
-@WebServlet("/calculadoraServlet")
+@WebServlet("/CalculadoraServlet")
 public class CalculadoraServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -102,13 +102,13 @@ public class CalculadoraServlet extends HttpServlet {
 		      out.println("<p><b>B:</b> " + num2 + "</p>");
 		      out.println("<p><b>Operación:</b> " + op + "</p>");
 		      out.println("<p><b>Resultado:</b> " + resultado + "</p>");
-		      out.println("<p><a href='calculadora_post.html'>Volver</a></p>");
+		      out.println("<p><a href='formularioCalculadora.html'>Volver</a></p>");
 		      out.println("</body></html>");
 
 		    } catch (Exception e) {
 		      out.println("<h1>Error</h1>");
 		      out.println("<p>" + e.getMessage() + "</p>");
-		      out.println("<p><a href='calculadora_post.html'>Volver</a></p>");
+		      out.println("<p><a href='formularioCalculadora.html'>Volver</a></p>");
 		    }
 	}
 
