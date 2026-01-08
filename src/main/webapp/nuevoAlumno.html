@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo alumno</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 6px;
+        }
+        .campo {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        input, select {
+            width: 100%;
+            padding: 6px 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Alta de alumno</h1>
+
+<!-- action = URL de tu servlet / controlador -->
+<form action="crearAlumno" method="post">
+
+    <div class="campo">
+        <label for="nombre">Nombre del alumno</label>
+        <input type="text" id="nombre" name="nombre" required>
+    </div>
+
+    <div class="campo">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="campo">
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" name="edad" min="0" max="120" required>
+    </div>
+
+    <div class="campo">
+        <label for="codigoCurso">Código del curso</label>
+        <!-- de momento texto; luego puedes sustituirlo por un <select> -->
+        <input type="text" id="codigoCurso" name="codigoCurso" required>
+    </div>
+
+    <button type="submit">Crear alumno</button>
+</form>
+
+</body>
+</html>
