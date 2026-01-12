@@ -1,4 +1,4 @@
-package es.cursojava.servlets;
+package es.cursojava.cursos.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;

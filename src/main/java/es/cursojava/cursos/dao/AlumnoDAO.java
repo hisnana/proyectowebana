@@ -93,11 +93,12 @@ public class AlumnoDAO {
      * Busca un alumno por email (debería ser único).
      */
     public Alumno obtenerAlumnoPorEmail(String email) {
-        log.debug("Buscando alumno por email {}", email);
-        return session
-                .createQuery("FROM Alumno a WHERE a.email = :email", Alumno.class)
-                .setParameter("email", email)
-                .uniqueResult();
+        return session.createQuery(
+                "FROM Alumno a WHERE a.email = :email",
+                Alumno.class
+            )
+            .setParameter("email", email)
+            .uniqueResult();
     }
 
     /**
