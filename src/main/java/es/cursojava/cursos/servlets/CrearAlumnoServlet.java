@@ -57,11 +57,19 @@ public class CrearAlumnoServlet extends HttpServlet {
 
         } else {
             // error: volvemos al formulario con los mensajes y los valores
-            request.setAttribute("dto", dto);
-            request.setAttribute("errores", resultado.getErrores());
+        	// Guardamos en el request el DTO con los datos que ha enviado el usuario,
+        	// para poder rellenar de nuevo el formulario con esos mismos valores.
+        	request.setAttribute("dto", dto);
 
-            request.getRequestDispatcher("/nuevoAlumno.jsp")
-                   .forward(request, response);
+        	// Guardamos en el request el mapa de errores de validación,
+        	// para que la JSP pueda mostrar los mensajes debajo de cada campo.
+        	request.setAttribute("errores", resultado.getErrores());
+
+        	// En lugar de redirigir, hacemos un forward interno al JSP del formulario.
+        	// Se vuelve a mostrar nuevoAlumno.jsp en la misma petición, usando "dto" y "errores"
+        	// que acabamos de poner en el request.
+        	request.getRequestDispatcher("/nuevoAlumno.jsp")
+        	       .forward(request, response);
         }
     }
 }
