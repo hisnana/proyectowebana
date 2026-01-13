@@ -81,6 +81,8 @@ public class AlumnoService {
 
             session = UtilidadesHibernate.abrirSesion();
             tx = session.beginTransaction();
+         // Inicia una transacción de BD: a partir de aquí los cambios (INSERT/UPDATE/DELETE)
+         // quedan agrupados para poder confirmarlos con commit() o deshacerlos con rollback().
 
             AlumnoDAO alumnoDAO = new AlumnoDAO(session);
             CursoDAO cursoDAO = new CursoDAO(session);
