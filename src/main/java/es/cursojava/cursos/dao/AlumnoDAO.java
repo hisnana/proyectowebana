@@ -77,15 +77,20 @@ public class AlumnoDAO {
         }
     }
 
-    /**
-     * Devuelve todos los alumnos.
-     */
-    public List<Alumno> obtenerTodosLosAlumnos() {
-        log.debug("Obteniendo todos los alumnos");
-        return session
-                .createQuery("FROM Alumno", Alumno.class)
-                .list();
+ // Usamos LEFT JOIN FETCH para que, al listar alumnos, Hibernate
+ // cargue también el Curso asociado mientras la sesión está abierta.
+ // Así el Curso queda inicializado y el JSP puede llamar a a.getCurso().getCodigo()
+ // aunque la sesión ya se haya cerrado, evitando LazyInitializationException.
+
+ // Devuelve todos los alumnos con su curso ya cargado
+    public List<Alumno> listarAlumnos() {
+        return session.createQuery(
+                "SELECT a FROM Alumno a " +
+                "LEFT JOIN FETCH a.curso",   // <-- hace que Hibernate cargue también el curso
+                Alumno.class
+        ).getResultList();
     }
+
 
     // ----------------- BÚSQUEDAS ÚTILES -----------------
 

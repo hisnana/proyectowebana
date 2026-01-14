@@ -1,5 +1,13 @@
 package es.cursojava.cursos.service;
 
+import java.util.List;
+import java.util.Map;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import es.cursojava.cursos.dao.AlumnoDAO;
 import es.cursojava.cursos.dao.CursoDAO;
 import es.cursojava.cursos.dto.AlumnoDTO;
@@ -7,12 +15,6 @@ import es.cursojava.cursos.dto.ResultadoAltaAlumno;
 import es.cursojava.cursos.entity.Alumno;
 import es.cursojava.cursos.entity.Curso;
 import es.cursojava.utils.UtilidadesHibernate;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.Map;
 
 public class AlumnoService {
 
@@ -138,5 +140,30 @@ public class AlumnoService {
 
     private String limpiar(String s) {
         return s != null ? s.trim() : null;
+    }
+    
+
+    /**
+     * Obtiene todos los alumnos de la base de datos.
+     * Lógica simple de lectura: abre sesión, usa el DAO y cierra sesión.
+     */
+    public List<Alumno> listarAlumnos() {
+        Session session = null;
+
+        try {
+            // Abrimos una sesión de Hibernate (solo lectura)
+            session = UtilidadesHibernate.abrirSesion();
+
+            AlumnoDAO alumnoDAO = new AlumnoDAO(session);
+
+            // Pedimos al DAO la lista completa
+            return alumnoDAO.listarAlumnos();
+
+        } finally {
+            // Cerramos la sesión si está abierta
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
     }
 }
